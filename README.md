@@ -12,35 +12,3 @@ We used Python 3.7.4 and its framework Django for the backend and Bootstrap ( ht
 
 ### Libraries Used
 We used Allauth which is used for user authentication. It is the integrated set of Django application addressing authentication, registration, account management. We also used some Django packages like Pillow for images, crispy_forms and phonenumber_field for forms.
-
-### Scrennshots
-
-Home Page
-
-![Home Page](https://github.com/Fatima-Mujahid/estyle/blob/main/Resources/1.png)
-![Home Page](https://github.com/Fatima-Mujahid/estyle/blob/main/Resources/2.png)
-
-User Login
-
-![User Login](https://github.com/Fatima-Mujahid/estyle/blob/main/Resources/3.png)
-
-Product Page
-
-![Product Page](https://github.com/Fatima-Mujahid/estyle/blob/main/Resources/4.png)
-
-Order Summary
-
-![Order Summary](https://github.com/Fatima-Mujahid/estyle/blob/main/Resources/5.png)
-
-Checkout
-
-![Checkout](https://github.com/Fatima-Mujahid/estyle/blob/main/Resources/6.png)
-
-Admin Page
-
-![Admin Page](https://github.com/Fatima-Mujahid/estyle/blob/main/Resources/7.png)
-
-Error Handling
-
-![Error Handling](https://github.com/Fatima-Mujahid/estyle/blob/main/Resources/8.png)
-# motiplug
