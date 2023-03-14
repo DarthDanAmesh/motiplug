@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% block head_title %}{{ item.name }} - eStyle{% endblock %}
+
+{% load static %}
+
+  <!--Main layout-->
+  <main class="mt-2 pt-4">
+    <div class="container dark-grey-text mt-5">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <img src="{{object.photo.url}}" class="img-fluid" height="600" width="450" alt="{{object.name}}">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+            <div class="mb-3">
+              <a href="">
+                <span class="badge purple mr-1">Clothing</span>
+              </a>
+
+            </div>
+
+            <p class="lead">
+              {% if object.discount_cost %}
+              <span class="mr-1">
+                <del>Rs.{{object.cost}}</del>
+              </span>
+              <span>Rs.{{object.discount_cost}}</span>
+              {% else %}
+              <span>Rs.{{ object.cost }}</span>
+              {% endif %}
+            </p>
+
+            <p class="lead font-weight-bold">Description</p>
+
+            <p>3 Piece<br>{{ object.detail }}<br><br></p>
+
+           {% comment %}
+           <form class="d-flex justify-content-left">
+              <!-- Default input -->
+              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+              <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </button>
+
+            </form> {% endcomment %}
+            <a href="{{ object.get_add_item_to_cart_url }}" class="btn btn-primary my-0 p">
+              Add to cart
+              <i class="fas fa-shopping-cart ml-1"></i>
+              </a>
+              <a href="{{ object.get_remove_item_from_cart_url }}" class="btn btn-danger my-0 p">
+                Remove from cart
+                </a>
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+{% endblock content %}

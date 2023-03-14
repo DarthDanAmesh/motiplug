@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}Checkout - eStyle{% endblock %}
+
+{% block content %}
+
+  <!--Main layout-->
+  <main>
+    <div class="container wow fadeIn ">
+
+      <!-- Heading -->
+      <br><h2 class="my-5 text-center">Checkout Form</h2>
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+          <!--Card-->
+          <div class="card">
+            
+            <!-- <form>
+              {% csrf_token %}
+              {{form| crispy}}
+              <button class='btn btn-primary 'type="submit">Checkout</button>
+            </form> -->
+
+            <!--Card content-->
+            <form method="POST" class="card-body">
+              {% csrf_token %}
+              <!--Grid row-->
+              <div class="row">
+
+            <!--Grid column-->
+             <div class="col-md-6 mb-2">
+             <!--firstName-->
+             <div class="md-form ">
+                {{ form.first_name }}
+                <label for="firstName" class="">First name</label>
+             </div>
+
+             </div>
+             <!--Grid column-->
+
+             <!--Grid column-->
+             <div class="col-md-6 mb-2">
+
+             <!--lastName-->
+             <div class="md-form">
+                {{ form.last_name }}
+                <label for="lastName" class="">Last name</label>
+              </div>
+
+              </div>
+              <!--Grid column-->
+
+              </div>
+              <!--Grid row-->
+
+              <!--address-->
+              <div class="md-form mb-5">
+                {{form.street_address}}
+                <label for="address" class="">Address</label>
+
+              </div>
+
+              <!--address-2-->
+              <div class="md-form mb-5">
+                {{form.apartment_address}}
+                <label for="address-2" class="">Address 2 (optional)</label>
+              </div>
+
+              <!--Grid row-->
+              <div class="row">
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
+
+                  <label for="country">Country</label>
+                  {{form.country}}
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
+
+                  <label for="country">City</label>
+                  {{form.city}}
+                  <div class="invalid-feedback">
+                    Please select a valid city.
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                  <label for="zip">Postal Code</label>
+                  {{form.postal_code}}
+                  <div class="invalid-feedback">
+                  Postal code required.
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+
+
+              </div>
+              <!--Grid row-->
+
+
+
+              <!--phone-->
+              <div class="md-form mb-3">
+                {{form.phone}}
+                <label for="phone" class="">Phone</label><br>
+              </div>
+
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+
+            </form>
+
+          </div>
+          <!--/.Card-->
+
+        </div>
+        <!--Grid column-->
+
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+{% endblock content %}

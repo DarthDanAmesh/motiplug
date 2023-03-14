@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block head_title %}Order Summary - eStyle{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+  <!--Main layout-->
+  <main>
+    <div class="container">
+      <div class="table-responsive text-nowrap">
+        <br><br><br><h2>Order Summary</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Item Title</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total Item Price</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for order_item in object.items.all %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>{{ order_item.item.name }}</td>
+              <td>{{ order_item.item.cost }}</td>
+              <td>
+                <a href="{% url 'shop:remove-single-item-from-cart' order_item.item.slug %}"><i class="fas fa-minus mr-2"></i></a>
+                {{ order_item.number }}
+                <a href="{% url 'shop:add-to-cart' order_item.item.slug %}"><i class="fas fa-plus ml-2"></i></a>
+              </td>
+              <td>
+              {% if order_item.item.discount_cost %}
+                  Rs.{{ order_item.get_total_discount_product_cost }}
+                  <span class="badge badge-primary">Saving Rs.{{ order_item.get_saved_cost }}</span>
+              {% else %}
+                  Rs.{{ order_item.get_total_product_cost }}
+              {% endif %}
+              <a style='color:red;' href="{% url 'shop:remove-from-cart' order_item.item.slug %}">
+                <i class="fas fa-trash float-right"></i>
+              </a>
+              </td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="5">Your cart is empty.</td>
+            </tr>
+            <tr>
+              <td colspan="5"><br>
+              <a class='btn btn-primary float-right' href="/">Continue Shopping</a>
+              </td>
+            </tr>
+            {% endfor %}
+            {% if object.get_order_cost %}
+            <tr>
+              <td colspan="4"><b>Order Total</b></td>
+              <td><b>Rs.{{ object.get_order_cost }}</b></td>
+            </tr>
+            <tr>
+              <td colspan="5"><br>
+              <a class='btn btn-default float-right ml-3' href="/checkout/">Proceed to Checkout</a>
+              <a class='btn btn-primary float-right' href="/">Continue Shopping</a>
+              </td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+  </main>
+  <!--Main layout-->
+
+
+{% endblock content %}

@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block head_title %}eStyle{% endblock %}
+{% block content %}
+{% load static %}
+
+
+<!--Carousel Wrapper-->
+<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+    <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+  </ol>
+  <!--/.Indicators-->
+
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+
+    <!--First slide-->
+    <div class="carousel-item active">
+      <div class="view" style="background-image: url('{% static 'img/c1.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
+
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+
+          <!-- Content -->
+          <div class="text-center white-text mx-5 wow fadeIn">
+            <img src="{% static 'img/Caro.png' %}" alt="">
+            <!-- <h1 class="mb-4" style="font-family: cursive, serif; font-style:italic;">
+              <strong><b>eStyle</b></strong>
+            </h1> -->
+
+            <p>
+              <strong><font size="+3">DO IT YOUR WAY</font></strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block" style="font-family: garamond;">
+              <br><strong><font size="+2">eStyle provides you with the latest collections of comfortable and elegant ladies clothing.</font></strong>
+            </p>
+
+          </div>
+          <!-- Content -->
+
+        </div>
+        <!-- Mask & flexbox options-->
+
+
+      </div>
+    </div>
+    <!--/First slide-->
+
+    <!--Second slide-->
+    <div class="carousel-item">
+      <div class="view" style="background-image: url('{% static 'img/c2.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
+
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+
+          <!-- Content -->
+          <div class="text-center white-text mx-5 wow fadeIn">
+            <img src="{% static 'img/Caro.png' %}" alt="">
+            <!-- <h1 class="mb-4" style="font-family: cursive, serif; font-style:italic">
+              <strong><b>eStyle</b></strong>
+            </h1> -->
+
+            <p>
+              <strong><font size="+3">DO IT YOUR WAY</font></strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block" style="font-family: garamond;">
+              <br><strong><font size="+2">eStyle provides you with the latest collections of comfortable and elegant ladies clothing.</font></strong>
+            </p>
+          </div>
+          <!-- Content -->
+
+        </div>
+        <!-- Mask & flexbox options-->
+
+
+      </div>
+    </div>
+    <!--/Second slide-->
+
+    <!--Third slide-->
+    <div class="carousel-item">
+      <div class="view" style="background-image: url('{% static 'img/c3.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
+
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+
+          <!-- Content -->
+
+          <div class="text-center white-text mx-5 wow fadeIn">
+            <img src="{% static 'img/Caro.png' %}" alt="">
+            <!-- <h1 class="mb-4" style="font-family: cursive, serif; font-style:italic">
+              <strong><b>eStyle</b></strong>
+            </h1> -->
+
+            <p>
+              <strong><font size="+3">DO IT YOUR WAY</font></strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block" style="font-family: garamond;">
+              <br><strong><font size="+2">eStyle provides you with the latest collections of comfortable and elegant ladies clothing.</font></strong>
+            </p>
+          </div>
+          <!-- Content -->
+
+        </div>
+        <!-- Mask & flexbox options-->
+
+      </div>
+    </div>
+    <!--/Third slide-->
+
+  </div>
+  <!--/.Slides-->
+
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
+
+</div>
+<!--/.Carousel Wrapper-->
+
+  <!--Main layout-->
+  <main>
+    <div class="container">
+      <br>
+
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
+
+        <!-- Navbar brand -->
+        <span class="navbar-brand">Our Products</span>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      </nav>
+      <!--/.Navbar-->
+
+      <!--Section: Products v.3-->
+      <section class="text-center mb-4">
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+          {% for item in object_list %}
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4">
+
+            <!--Card-->
+            <div class="card">
+
+              <!--Card image-->
+              <div class="view overlay">
+                <img src="{{ item.photo.url }}" class="card-img-top" alt="{{item.name}}">
+                <a href="{{ item.get_absolute_url }}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+              <!--Card image-->
+
+              <!--Card content-->
+              <div class="card-body text-center">
+                <!--Category & Title-->
+                <a href="" class="grey-text">
+                  <h8>Clothing</h8>
+                </a>
+                <h5>
+                  <strong>
+                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.name }}
+                      <span class="badge badge-pill {{item.get_colortag_display}}-color">{{item.tag}}</span>
+                    </a>
+                  </strong>
+                </h5>
+
+                <h4 class="font-weight-bold blue-text">
+                  <strong>Rs.
+                  {% if item.discount_cost %}
+                  {{ item.discount_cost }}
+                  {% else %}
+                  {{ item.cost }}
+                  {% endif %}
+                  </strong>
+                </h4>
+
+              </div>
+              <!--Card content-->
+
+            </div>
+            <!--Card-->
+
+          </div>
+          <!--Grid column-->
+          {% endfor %}
+        </div>
+        <!--Grid row-->
+
+      </section>
+      <!--Section: Products v.3-->
+
+      <!--Pagination-->
+      {% if is_paginated %}
+      <nav class="d-flex justify-content-center wow fadeIn">
+        <ul class="pagination pg-blue">
+
+          <!--Arrow left-->
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          {% endif %}
+
+          <li class="page-item active">
+            <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
+              <span class="sr-only">(current)</span>
+            </a>
+
+          {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+      <!--Pagination-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+
+{% endblock content %}
