@@ -15,6 +15,6 @@ Utilizes:
 
 Check the requirements.txt file for a comprehensive list.
 
-###Authentication
+### Authentication
 
 Allauth is used for user authentication: addressing authentication, registration, account management.
